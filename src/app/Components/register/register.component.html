@@ -1,0 +1,79 @@
+<div class="registerCard">
+  <form>
+    <mat-card class="register-div">
+      <div class="mainContent">
+        <mat-card-title class="headerContent">
+            <span style="color: blue;">F</span>
+            <span style="color: red;">U</span>
+            <span style="color: rgb(229, 255, 0);">N</span>
+            <span style="color: green;">D</span>
+            <span style="color: greenyellow;">O</span>
+            <span style="color: greenyellow;">O</span>
+        </mat-card-title>
+        <mat-card-subtitle class="title-div">Create your Fundoo Account</mat-card-subtitle>
+        <form [formGroup]="RegisterForm">
+        <div class="input-div">
+        <p>
+            <mat-form-field appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input matInput placeholder="First Name" formControlName="firstName">
+              <mat-error *ngIf="RegisterForm.hasError('required', 'firstName')">FirstName is required</mat-error>
+              <mat-error *ngIf="RegisterForm.hasError('pattern', 'firstName')">Name should start with caps</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input matInput placeholder="Last Name" formControlName="lastName">
+              <mat-error *ngIf="RegisterForm.hasError('required', 'lastName')">LastName is required</mat-error>
+              <mat-error *ngIf="RegisterForm.hasError('pattern', 'lastName')">Name should start with caps</mat-error>
+            </mat-form-field>
+        </p>
+        </div>
+        <div class="input-div">
+        <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-hint style="font-size:12px">You can use letters, numbers and periods</mat-hint>
+              <mat-error *ngIf="RegisterForm.hasError('required', 'email')">Email is required</mat-error>
+              <mat-error *ngIf="RegisterForm.hasError('email', 'email')">Invalid Email</mat-error>
+            </mat-form-field>
+        </p>
+      </div>
+        <div class="input-div">
+        <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'">
+              <mat-error *ngIf="RegisterForm.hasError('pattern', 'password')">Choose a stronger password</mat-error>
+              <mat-error *ngIf="RegisterForm.hasError('minLength', 'password')">Use 8 characters or more fore your password</mat-error>
+            </mat-form-field>
+       </p>
+       <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Confirm</mat-label>
+              <input matInput placeholder="Confirm" formControlName="cpassword" [type]="hide ? 'password' : 'text'" pattern="{{this.RegisterForm.value.password}}">
+              <mat-error *ngIf="RegisterForm.hasError('required', 'cpassword')">Confirm your password</mat-error>
+              <mat-error *ngIf="RegisterForm.hasError('pattern', 'cpassword')">Those passwords didn't match.Try again</mat-error>
+            </mat-form-field>
+        </p>  
+        </div>
+        <div class="passwordHint">
+        <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint>
+        </div>
+        <section class="check-box">
+            <mat-checkbox (change)= 'hide = !hide' class="checkbox-margin">Show Password</mat-checkbox>
+        </section>
+        <div class="button-div">
+            <button mat-button color="primary" [routerLink]="['/login']">Sign in instead</button>
+            <button mat-raised-button (click)="Register()" color="primary">Next</button>
+        </div>
+      </form>
+      </div>
+        <div class="img-div"><img src="./../../../assets/Fundoo.svg" alt="icon">
+          <p>One Account. Create and Save your Notes.</p>
+        </div>
+    </mat-card>
+  </form>
+</div>

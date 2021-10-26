@@ -1,0 +1,62 @@
+.registerCard {
+    width: fit-content;
+    line-height: 40px;
+    display: flex;
+    margin: 20px auto;
+    padding: 40px;   
+}
+
+.register-div {
+    display: flex;
+}
+.title-div{
+    font-size: x-large;
+    color: black;
+}
+
+.mainContent {
+    margin-top: 30px;
+    margin-left: 10px;
+  }
+
+.input-div {
+    display: flex;
+    gap: 1rem;
+}
+
+.passwordHint{
+    font-size: 12px;
+    margin-top: -30px;
+    margin-left: 10px;
+}
+
+.check-box {
+    margin: 12px 0;
+}
+
+.checkbox-margin {
+    margin: 0 12px;
+}
+
+.button-div {
+    color: rgb(20, 62, 247);
+    display: flex;
+    gap: 13rem;
+}
+.img-div {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin: 20px;
+    justify-content: initial;
+    padding: 20px;
+    text-align: center;
+    img{
+        width:250px;
+    }
+    p{
+        line-height: normal;
+        font-size: 16px;
+        width: 200px;
+    } 
+}
