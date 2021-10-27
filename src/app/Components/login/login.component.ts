@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { UserServiceService } from 'src/app/Services/UserService/user-service.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   hide = true;
 
   constructor(
-    private userService: UserServiceService
+    private userService: UserServiceService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -25,8 +27,11 @@ export class LoginComponent implements OnInit {
     this.userService.Login(this.LoginForm.value)
     .subscribe((result : any)=> {
       console.log(result);
+      this.snackBar.open(`${result.message}`, '', {
+        duration:5000
+      });
 
-    });
+    })
 
   }
 }

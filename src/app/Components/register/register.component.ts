@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from 'src/app/Services/UserService/user-service.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,8 @@ export class RegisterComponent implements OnInit {
   hide = true;
 
   constructor(
-    private userService: UserServiceService
+    private userService: UserServiceService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,9 @@ export class RegisterComponent implements OnInit {
     this.userService.Register(this.RegisterForm.value)
       .subscribe((result: any) => {
         console.log(result);
+        this.snackBar.open(`${result.message}`, '', {
+          duration:5000
+        });
 
       });
   }

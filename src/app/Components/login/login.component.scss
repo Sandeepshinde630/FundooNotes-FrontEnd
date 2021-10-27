@@ -3,11 +3,10 @@
     flex-direction: column;
 }
 .loginCard{
-    width: fit-content;
-    line-height: 40px;
-    display: flex;
-    margin: 20px auto;
-    padding: 40px;  
+    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
 }
 .cardContent{
     width: 410px;
