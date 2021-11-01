@@ -47,4 +47,19 @@ export class NoteServiceService {
     } );
   }
 
+  GetTrashNotes(){
+    var userId = this.user.UserId;
+    return this.httpService.get(`${environment.baseUrl}/api/GetTrashNotes?userId=${userId}`, true, {
+      headers: {Authorization:"Bearer "+this.user.Token}
+    } );
+  }
+
+  DeleteForever(notesId: any)
+  {
+    return this.httpService.delete(`${environment.baseUrl}/api/DeleteaNoteFromTrash?notesId=${notesId}`, true, {
+      headers: {Authorization:"Bearer "+this.user.Token}
+    } );
+  }
+
+
 }

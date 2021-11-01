@@ -27,8 +27,8 @@ import { CreateNoteComponent } from './Components/create-note/create-note.compon
 import { NoteIconsComponent } from './Components/note-icons/note-icons.component';
 import { GetNotesComponent } from './Components/get-notes/get-notes.component';
 import { EditNoteComponent } from './Components/edit-note/edit-note.component';
-import { GetNoteIconsComponent } from './Components/get-note-icons/get-note-icons.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { GetTrashComponent } from './Components/get-trash/get-trash.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     NoteIconsComponent,
     GetNotesComponent,
     EditNoteComponent,
-    GetNoteIconsComponent
+    GetTrashComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +66,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     
   ],
   providers: [
-  GetNoteIconsComponent
   ],
   bootstrap: [AppComponent]
 })

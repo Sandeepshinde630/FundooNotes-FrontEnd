@@ -84,8 +84,9 @@
           </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>
-              <app-create-note></app-create-note>
+              <app-create-note *ngIf='navButton=="Notes" || navButton=="Reminders" || navButton=="Label"'></app-create-note>
               <app-get-notes *ngIf='navButton=="Notes"'></app-get-notes>
+                <app-get-trash *ngIf='navButton=="Trash"'></app-get-trash>
             </mat-sidenav-content>
         
     </mat-sidenav-container>
