@@ -17,6 +17,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { CreateNoteComponent } from './Components/create-note/create-note.component';
+import { NoteIconsComponent } from './Components/note-icons/note-icons.component';
+import { GetNotesComponent } from './Components/get-notes/get-notes.component';
+import { EditNoteComponent } from './Components/edit-note/edit-note.component';
+import { GetNoteIconsComponent } from './Components/get-note-icons/get-note-icons.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -24,7 +36,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     RegisterComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    DashboardComponent,
+    CreateNoteComponent,
+    NoteIconsComponent,
+    GetNotesComponent,
+    EditNoteComponent,
+    GetNoteIconsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,10 +56,18 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatListModule,
+    MatDialogModule
     
   ],
-  providers: [],
+  providers: [
+  GetNoteIconsComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

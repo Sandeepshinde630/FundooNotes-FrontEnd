@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from 'src/app/Services/UserService/user-service.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private userService: UserServiceService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router : Router
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +36,10 @@ export class RegisterComponent implements OnInit {
         this.snackBar.open(`${result.message}`, '', {
           duration:5000
         });
+        if(result.status == true)
+      {
+        this.router.navigateByUrl('/login');
+      }
 
       });
   }

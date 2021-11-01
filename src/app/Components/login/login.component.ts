@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { UserServiceService } from 'src/app/Services/UserService/user-service.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService: UserServiceService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router : Router
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +32,17 @@ export class LoginComponent implements OnInit {
       this.snackBar.open(`${result.message}`, '', {
         duration:5000
       });
+      if(result.status == true){
+        const params =  {
+          UserId: result.data.userId,
+          FirstName: result.data.firstName,
+          LastName: result.data.lastName,
+          Email: result.data.email,
+          Token: result.tokenString
+        }
+        localStorage.setItem('FundooUser', JSON.stringify(params));
+        this.router.navigateByUrl('/dashboard');
+      }
 
     })
 

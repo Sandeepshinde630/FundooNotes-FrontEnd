@@ -1,0 +1,31 @@
+.noteCard{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 -10px;
+    height: 100px;
+    word-wrap: break-word;
+    width: 250px;
+    
+}
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    p{
+        font-size: 15px;
+    }
+}
+
+.noteContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+app-note-icons{
+    display: none;
+  }
+  
+  mat-card:hover app-note-icons{
+    display: block;
+  }
