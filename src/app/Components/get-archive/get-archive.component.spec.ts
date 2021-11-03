@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GetNoteIconsComponent } from './get-note-icons.component';
+import { GetArchiveComponent } from './get-archive.component';
 
-describe('GetNoteIconsComponent', () => {
-  let component: GetNoteIconsComponent;
-  let fixture: ComponentFixture<GetNoteIconsComponent>;
+describe('GetArchiveComponent', () => {
+  let component: GetArchiveComponent;
+  let fixture: ComponentFixture<GetArchiveComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GetNoteIconsComponent ]
+      declarations: [ GetArchiveComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GetNoteIconsComponent);
+    fixture = TestBed.createComponent(GetArchiveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -9,7 +9,7 @@
             <mat-icon class="material-icons-outlined">image</mat-icon>
         </div>
     </mat-card>
-    <mat-card class="hiddenCard" *ngIf="show" [style.background-color]="noteColor" >
+    <mat-card class="hiddenCard" *ngIf="show" [style.background-color]="noteColor" (click)="Color()">
         <form [formGroup]="CreateNoteForm">
             <mat-card-title class="header">
                 <input matInput placeholder="Title" formControlName="title" class="input" [ngStyle]="{'background':noteColor}">

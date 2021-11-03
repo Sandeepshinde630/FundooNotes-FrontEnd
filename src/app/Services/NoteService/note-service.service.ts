@@ -61,5 +61,38 @@ export class NoteServiceService {
     } );
   }
 
+  Restore(notesId: any)
+  {
+    return this.httpService.put(`${environment.baseUrl}/api/RestoreFromTrash?notesId=${notesId}`,null, true, {
+      headers: {Authorization:"Bearer "+this.user.Token}
+    } );
+  }
+
+  GetArchive(){
+    var userId = this.user.UserId;
+    return this.httpService.get(`${environment.baseUrl}/api/GetArchiveNotes?userId=${userId}`, true, {
+      headers: {Authorization:"Bearer "+this.user.Token}
+    } );
+  }
+
+  Archive(notesId:any){
+    return this.httpService.put(`${environment.baseUrl}/api/archive?notesId=${notesId}`, null, true,{
+      headers: {Authorization:"Bearer "+this.user.Token}
+    } );
+  }
+
+  Unarchive(notesId:any){
+    return this.httpService.put(`${environment.baseUrl}/api/unarchive?notesId=${notesId}`, null, true,{
+      headers: {Authorization:"Bearer "+this.user.Token}
+    } );
+  }
+
+  Color(noteId: any, color: any){
+    return this.httpService.put(`${environment.baseUrl}/api/UpdateColor?noteId=${noteId}&color=${color}`,null, true,{
+      headers: {Authorization:"Bearer "+this.user.Token}
+    } );
+  }
+
+
 
 }

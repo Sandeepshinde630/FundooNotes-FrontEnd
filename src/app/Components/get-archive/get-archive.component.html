@@ -1,0 +1,17 @@
+<div class="archiveNotes">
+    <mat-card class="noteCard" *ngFor="let note of notes" [ngStyle]="{'background-color':note.color}">
+        <mat-icon class="material-icons-outlined pinIcon" >push_pin</mat-icon>
+       
+        <div class="title" >
+            <mat-card-title>
+                <p>{{ note.title }}</p>
+            </mat-card-title>
+        </div>
+        <div class="description" >
+            <mat-card-content>{{ note.description }}</mat-card-content>
+        </div>
+        <div class="icons">
+            <app-note-icons [notes]=note></app-note-icons>
+        </div>
+    </mat-card>
+</div>

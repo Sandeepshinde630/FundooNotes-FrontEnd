@@ -29,6 +29,7 @@ import { GetNotesComponent } from './Components/get-notes/get-notes.component';
 import { EditNoteComponent } from './Components/edit-note/edit-note.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { GetTrashComponent } from './Components/get-trash/get-trash.component';
+import { GetArchiveComponent } from './Components/get-archive/get-archive.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { GetTrashComponent } from './Components/get-trash/get-trash.component';
     NoteIconsComponent,
     GetNotesComponent,
     EditNoteComponent,
-    GetTrashComponent
+    GetTrashComponent,
+    GetArchiveComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NoteServiceService } from 'src/app/Services/NoteService/note-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DataServiceService } from 'src/app/Services/DataService/data-service.service';
+import { NoteIconsComponent } from '../note-icons/note-icons.component';
 
 @Component({
   selector: 'app-create-note',
@@ -19,7 +21,8 @@ export class CreateNoteComponent implements OnInit {
   constructor(
     
     private noteService: NoteServiceService,
-    public snackBar : MatSnackBar
+    public snackBar : MatSnackBar,
+    private data : DataServiceService
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +31,7 @@ export class CreateNoteComponent implements OnInit {
       description: new FormControl()
     });
   }
+  @ViewChild(NoteIconsComponent) public noteIcons: any;
 
   AddNote(){
     const params = {
@@ -36,6 +40,7 @@ export class CreateNoteComponent implements OnInit {
     }
     this.noteService.CreateNote(params)
     .subscribe((result:any)=>{
+      this.data.changeMessage(true);
       console.log(result);
       this.snackBar.open(`${result.message}`, '', {
         duration:5000,
@@ -53,6 +58,11 @@ export class CreateNoteComponent implements OnInit {
         });
       }
     })
+  }
+
+  Color(){
+    var cardColor = document.getElementsByClassName('hiddenCard');
+    this.noteColor = this.noteIcons.noteColor;
   }
 
 }

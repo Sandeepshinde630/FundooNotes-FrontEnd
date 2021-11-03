@@ -7,13 +7,24 @@
         <mat-icon class="material-icons-outlined">person_add</mat-icon>
     </button>
     <button mat-icon-button class="toolbar-icon" aria-label="color_lens icon">
-        <mat-icon class="material-icons-outlined">color_lens</mat-icon>
+        <mat-icon class="material-icons-outlined" [matMenuTriggerFor]="color">color_lens</mat-icon>
     </button>
+    <mat-menu #color="matMenu" class="colorMenu" yPosition="above">
+        <div class="menu">
+            <div class="row" *ngFor="let color of colorsList;let i=index">
+                <button mat-icon-button class="color-icon" [ngStyle]="{ 'background-color': color.color }" 
+                (click)="changecolor(colorsList[i].color)">
+                    <mat-icon *ngIf="colorsList[i].icon">done</mat-icon>
+                </button>
+            </div>
+        </div>
+    </mat-menu>
     <button mat-icon-button class="toolbar-icon" aria-label="image icon">
         <mat-icon class="material-icons-outlined">image</mat-icon>
     </button>
     <button mat-icon-button class="toolbar-icon" aria-label="archive icon">
-        <mat-icon class="material-icons-outlined">archive</mat-icon>
+        <mat-icon class="material-icons-outlined" *ngIf="!archive" (click)="archive=true;isArchive()">archive</mat-icon>
+        <mat-icon class="material-icons-outlined" *ngIf="archive" (click)="archive=false;isArchive()">archive</mat-icon>
     </button>
     <button mat-icon-button class="toolbar-icon" aria-label="more_vert icon">
         <mat-icon class="material-icons" [matMenuTriggerFor]="!moreMenu ? more : label">more_vert</mat-icon>

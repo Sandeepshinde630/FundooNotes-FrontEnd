@@ -28,6 +28,10 @@ export class EditNoteComponent implements OnInit {
     .subscribe((result:any)=>{
       console.log(result);
       console.log(this.data);
+      this.snackBar.open(`${result.message}`, '', {
+        verticalPosition:'bottom',
+        horizontalPosition:'left',
+        duration:5000});
     })
   }
 
